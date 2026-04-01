@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aura - Practice. Improve. Post with confidence.</title>
+    <link rel="icon" type="image/svg+xml" href="assets/Aura favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -152,7 +153,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(255, 255, 255, 0.97);
+        background: rgba(255, 255, 255, 0.519);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         z-index: 99;
@@ -301,17 +302,17 @@
       }
 
       .hero-phone-left {
-        width: 28%;
-        left: 16%;
-        top: 55px;
-        z-index: 2;
+        width: 26%;
+        left: 22%;
+        top: 15%;
+        z-index: 1;
       }
 
       .hero-phone-right {
-        width: 28%;
-        right: 16%;
-        top: 55px;
-        z-index: 2;
+        width: 26%;
+        right: 22%;
+        top: 15%;
+        z-index: 1;
       }
 
       .hero-float-card {
@@ -320,16 +321,16 @@
       }
 
       .hero-float-left {
-        left: 8%;
-        top: 140px;
+        left: 15%;
+        top: 9%;
         width: 23%;
       }
 
       .hero-float-right {
-        right: 5%;
-        top: 80px;
+        right: 16%;
+        top: 2%;
         width: 17%;
-        z-index: 1;
+        z-index: 0;
       }
 
       /* ── FEATURES ── */
@@ -384,8 +385,8 @@
       }
 
       .feature-number {
+        font-family: "Red Hat Display";
         font-weight: 800;
-        font-style: Light;
         font-size: 80px;
         color: var(--purple-200);
         line-height: 1;
@@ -779,7 +780,7 @@
           width: 45%;
         }
         .hero-phones {
-          height: 460px;
+          height: 540px;
         }
       }
 
@@ -792,7 +793,7 @@
         }
         .hero {
           min-height: auto;
-          padding-bottom: 0;
+          padding-bottom: 40px;
         }
         .hero h1 {
           font-size: 36px;
@@ -812,11 +813,12 @@
           overflow: visible;
           display: flex;
           justify-content: center;
+        }
+        .hero-phones .hero-phone-img {
           position: relative;
         }
         .hero-phone-center {
-          position: relative;
-          width: 55%;
+          width: 90%;
           left: auto;
           top: auto;
           transform: none;
@@ -846,6 +848,14 @@
         }
       }
 
+      @media (max-width: 760px) and (min-width: 431px) {
+        .feature-block {
+          width: 80%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
       @media (max-width: 576px) {
         .nav-wrap {
           width: calc(100% - 40px);
@@ -864,11 +874,8 @@
           padding-left: 20px;
           padding-right: 20px;
         }
-        .hero-phones {
-          padding: 0 20px;
-        }
         .hero-phone-center {
-          width: 70%;
+          width: 65%;
         }
         .team-grid {
           grid-template-columns: 1fr 1fr;
@@ -929,6 +936,7 @@
           <a
             href="https://www.figma.com/proto/oSbJnTV6ZJTD8HYSHJlRpj/Caliente---Aura--Capstone-?page-id=1115%3A11221&node-id=2560-8146&p=f&viewport=-1409%2C-1462%2C0.18&t=yEitj5r6wk8HcCFr-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2560%3A8146&show-proto-sidebar=1"
             class="btn figma-prototype btn-outline"
+            target="_blank"
           >
             <svg
               width="24"
@@ -1364,8 +1372,8 @@
                 /></a>
                 <a
                   href="https://github.com/bitna-dev"
-                  class="team-social-icon"
                   target="_blank"
+                  class="team-social-icon"
                   ><img src="assets/Github-Icon.svg" alt="GitHub"
                 /></a>
                 <a href="#" class="team-social-icon"
@@ -1422,6 +1430,7 @@
             <a
               href="https://www.figma.com/proto/oSbJnTV6ZJTD8HYSHJlRpj/Caliente---Aura--Capstone-?page-id=1115%3A11221&node-id=2560-8146&p=f&viewport=-1409%2C-1462%2C0.18&t=yEitj5r6wk8HcCFr-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2560%3A8146&show-proto-sidebar=1"
               class="btn figma-prototype btn-outline"
+              target="_blank"
             >
               <svg
                 width="24"
@@ -1450,6 +1459,7 @@
             <a
               href="https://github.com/WMDD-Capstone"
               class="btn github-btn btn-primary"
+              target="_blank"
             >
               <svg
                 width="24"
@@ -1576,12 +1586,27 @@
         const hamburger = document.getElementById("hamburger");
         const mobileMenu = document.getElementById("mobileMenu");
 
+        function closeMenu() {
+          hamburger.classList.remove("active");
+          mobileMenu.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+
         hamburger.addEventListener("click", () => {
           hamburger.classList.toggle("active");
           mobileMenu.classList.toggle("open");
           document.body.style.overflow = mobileMenu.classList.contains("open")
             ? "hidden"
             : "";
+        });
+
+        mobileMenu.addEventListener("click", (e) => {
+          if (e.target === mobileMenu) closeMenu();
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && mobileMenu.classList.contains("open"))
+            closeMenu();
         });
 
         const contactForm = document.getElementById("contactForm");

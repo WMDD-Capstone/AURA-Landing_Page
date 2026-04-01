@@ -1,0 +1,13 @@
+
+aura_links.txt
+
+# Common ignores
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+.env
+dist/
+build/
+.vscode/
+.idea/
