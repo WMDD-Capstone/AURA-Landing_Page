@@ -559,8 +559,8 @@
 
       /* ── VIDEO ── */
       .video-container {
-        width: 100%;
-        max-width: 1210px;
+        width: calc(100% - 48px);
+        max-width: 1320px;
         aspect-ratio: 1210 / 530;
         background: #000000;
         border-radius: 20px;
@@ -805,6 +805,7 @@
         }
         .video-container {
           border-radius: 16px;
+          aspect-ratio: 16 / 9;
         }
       }
 
@@ -872,6 +873,7 @@
         }
         .video-container {
           border-radius: 12px;
+          aspect-ratio: 16 / 9;
         }
       }
 
@@ -911,7 +913,10 @@
           width: 150px;
         }
         .video-container {
+          width: calc(100% - 24px);
           border-radius: 10px;
+          aspect-ratio: 16 / 9;
+          margin-top: 40px;
         }
       }
 
@@ -1506,17 +1511,17 @@
               Check github
             </a>
           </div>
-          <!-- Video -->
-          <div class="video-container">
-            <video
-              src="assets/video/Aura_Production_Video.mp4"
-              controls
-              playsinline
-              preload="metadata"
-              title="Aura Production Video"
-            ></video>
-          </div>
         </div>
+      </div>
+      <!-- Video -->
+      <div class="video-container fade-in">
+        <video
+          src="assets/video/Aura_Production_Video.mp4"
+          controls
+          playsinline
+          preload="metadata"
+          title="Aura Production Video"
+        ></video>
       </div>
     </section>
 
